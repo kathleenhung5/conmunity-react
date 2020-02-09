@@ -1,0 +1,23 @@
+@import '../../style/font';
+@import '../../style/colours';
+@import '../../style/func';
+
+.profile {
+    @include flex(row, center, center);
+    .profile-icon {
+        border: solid 4px $blue;
+        border-radius: 30px;
+        color: $blue;
+        font-size: 40px;
+        margin-right: 20px;
+    }
+
+    div {
+        h2 {
+            @extend %font-h2;
+        }
+        h4 {
+            @extend %font-body;
+        }
+    }
+}

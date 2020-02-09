@@ -1,0 +1,41 @@
+@use 'colours';
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+
+$fontfamily: 'Source Sans Pro', sans-serif;
+
+
+// Profile username
+// Breadcrumbs
+// Task description and comments
+%font-body {
+    font-family: $fontfamily;
+    font-size: 14px;
+    font-weight: 300;
+    margin:0px;
+}
+
+// Comment date and username
+// icon labels 
+%font-detail-text {
+    font-family: $fontfamily;
+    font-size: 14px;
+    margin:0px;
+}
+
+// Popup title and button
+// Item (window, floor, task) name
+// Profile company name
+%font-h2 {
+    font-family: $fontfamily;
+    font-size: 20px;
+    font-weight: 600;
+    margin:0px;
+}
+
+// Page name
+%font-h1 {
+    font-family: $fontfamily;
+    font-size: 48px;
+    font-weight: 700;
+    margin:0px;
+}
