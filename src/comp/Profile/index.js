@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {IoMdPerson} from 'react-icons/io';
 
 function Profile({companyName, username, onClick}){
