@@ -3,14 +3,30 @@
 @import '../../style/func';
 
 .project {
-    @include flex(column,center);
+    @include flex(column, center, center);
     @extend %drop-shadow;
     background: white;
     border-radius: 10px;
     width:150px;
     height: 200px;
     div {
-        
+        color: white;
+        width: 70px;
+        height: 70px;
+        background-color: $blue;
+        border-radius: 15px;
+        @include flex(row, center, center);
         @extend %font-h2;
+    }
+    h3 {
+        @extend %font-body;
+        color: $blue;
+        margin-top: 15px;
+        font-weight: 600;
+    }
+    h4 {
+        @extend %font-detail-text;
+        color: $grey;
+        margin-top: 30px;
     }
 }
