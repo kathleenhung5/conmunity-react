@@ -14,5 +14,9 @@ export const DefaultComment = () => (
 );
 
 export const CustomComment = () => (
-    <SingleComment />
+    <SingleComment 
+    userName={text('username')}
+    comment={text('comment')}
+    timestamp={text('date/time')}
+    />
 )

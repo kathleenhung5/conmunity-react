@@ -1,4 +1,4 @@
-@use 'colours';
+@import 'colours';
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
 
 $fontfamily: 'Source Sans Pro', sans-serif;
@@ -21,6 +21,7 @@ $fontfamily: 'Source Sans Pro', sans-serif;
     font-size: 12px;
     font-weight: 300;
     margin:0px;
+    color:$grey;
 }
 
 // Popup title and button
