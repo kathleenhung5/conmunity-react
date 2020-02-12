@@ -6,22 +6,21 @@
 .progress {
   @include flex(row, center, center);
   .bar-cont {
-      border: solid 2px $black;
-      width: 270px;
-      height: 35px;
+      border: solid 3px $blue;
+      width: 260px;
+      height: 29px;
       border-radius: 8px;
     }
   .prog-bar {
     background-color: $blue;
     width: 135px;
-    height: 35px;
-    border-radius: 8px;
+    height: 29px;
+    border-radius: 6px, 0;
   }
   .prog-pct {
+    margin-left: 8px;
     color: $blue;
-    h4 {
-      @extend %font-body;
-    }
+    @extend %font-h2;
   }
 
   }

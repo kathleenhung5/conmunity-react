@@ -11,4 +11,8 @@ function ProgressBar({progress}){
     )
 }
 
+ProgressBar.defaultProps = {
+  progress: 50
+}
+
 export default ProgressBar;

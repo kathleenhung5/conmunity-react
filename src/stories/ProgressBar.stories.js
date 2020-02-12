@@ -1,7 +1,14 @@
 import React from 'react';
 import '../App.scss';
 import ProgressBar from '../comp/ProgressBar/index.js';
+import '../comp/ProgressBar/progressbar.scss';
 
-export const ProgressBar = () => (
-  <Progress />
+export default {
+  title: 'Progress Bar',
+  component: ProgressBar
+}
+
+
+export const DefaultProgressBar = () => (
+  <ProgressBar />
 );
