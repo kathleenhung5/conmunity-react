@@ -1,0 +1,27 @@
+@import '../../style/font';
+@import '../../style/colours';
+@import '../../style/func';
+
+
+.progress {
+  @include flex(row, center, center);
+  .bar-cont {
+      border: solid 2px $black;
+      width: 270px;
+      height: 35px;
+      border-radius: 8px;
+    }
+  .prog-bar {
+    background-color: $blue;
+    width: 135px;
+    height: 35px;
+    border-radius: 8px;
+  }
+  .prog-pct {
+    color: $blue;
+    h4 {
+      @extend %font-body;
+    }
+  }
+
+  }
