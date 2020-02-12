@@ -1,0 +1,17 @@
+@import '../../style/font';
+@import '../../style/colours';
+@import '../../style/func';
+
+.singleComment {
+
+    h4 {
+        @extend %font-detail-text;
+    }
+    p {
+        @extend %font-body;
+    }
+    h5 {
+        @extend %font-detail-text;
+        text-align: right;
+    }
+}
