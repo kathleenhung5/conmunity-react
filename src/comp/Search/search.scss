@@ -1,0 +1,63 @@
+@import '../../style/font';
+@import '../../style/colours';
+@import '../../style/func';
+//@import '../../../node_modules/@opuscapita/oc-cm-common-styles/styles/app';
+//@import '../../../node_modules/@opuscapita/oc-cm-common-styles/styles/colors';
+
+body {
+    background-color: $appBg;
+
+
+.search {
+    @include flex(row, flex-start, center);
+    border-radius: 10px;
+    background-color: white;
+    color: $grey;
+    height: 40px;
+
+    .search-icon {
+        color: $blue;
+        font-size: 20px;
+        flex: 1;
+        @include flex(row, flex-start, center);
+    }
+.inp-bar {
+    @include flex(row, flex-start, center);
+    flex: 9;
+        h4 {
+            @include flex(row, flex-start, center);
+            @extend %font-body;
+            flex: 1;
+            input {
+                border: none;
+            }
+        }
+}
+}
+}
+
+/*body {
+    background-color: $appBg;
+}
+.search-icon {
+    color: $blue;
+    font-size: 20px;
+    padding-left: 15px;
+    padding-top: 10px;
+}
+
+.search {
+        border-radius: 10px;
+        background-color: white;
+        color: $grey;
+        height: 40px;
+        margin: 20px;
+
+        .inp-bar {
+            @include flex(row, center, center);
+            h4 {
+                @extend %font-body;
+                left: 900px;
+            }
+        }
+}*/

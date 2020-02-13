@@ -1,0 +1,30 @@
+@import '../../style/font';
+@import '../../style/colours';
+@import '../../style/func';
+
+
+.Item {
+    @extend %drop-shadow;
+    @include flex(row, space-between, center);
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: white;
+    
+    h3 {
+        @extend %font-h2;
+        flex: 7;
+        color: $blue;
+    }
+
+    .itemAlert {
+        font-size: 20px;
+        flex:1;
+        color: darkorange;
+        @include flex(row, flex-end, center);
+    }
+
+    .invisible {
+        visibility: hidden;
+    }
+
+}
