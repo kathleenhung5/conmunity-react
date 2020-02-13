@@ -2,17 +2,17 @@ import React from 'react';
 //import SearchBar from '@opuscapita/react-searchbar';
 import {IoMdSearch} from 'react-icons/io'
 
-function Search({onSearch, searchItem, handleSearch}){
+function Search({onChange, searchItem}){
     return(
-        <div onSearch={onSearch} className="search">
+        <div className="search">
         <IoMdSearch className="search-icon"/>
             <div className="inp-bar">
                 <h4>
                 <input
                     type='text'
                     size='45'
-                    placeholder={searchItem}
-                    onChange={handleSearch}
+                    placeholder={"Search "+searchItem}
+                    onChange={onChange}
                     value="" /></h4>
             </div>
         </div>
@@ -21,7 +21,7 @@ function Search({onSearch, searchItem, handleSearch}){
 
 //not sure how to change the text on input 
 Search.defaultProps = {
-    searchItem: 'Search',
+    searchItem: 'item',
     onChange: ()=>{}
 }
 
