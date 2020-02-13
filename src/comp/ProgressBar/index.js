@@ -11,9 +11,9 @@ function ProgressBar({progress}){
     )
 }
 
-// You also want to have some default props for a component, so that it's not empty when you view it in the storybook
+
 ProgressBar.defaultProps = {
-    progress: 20
+    progress: 50
 }
 
 export default ProgressBar;
