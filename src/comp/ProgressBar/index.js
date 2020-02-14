@@ -1,19 +1,22 @@
 import React, {useState} from 'react';
 
-function ProgressBar({progress}){
+function ProgressBar({percent, progbar}){
+
+
     return(
         <div className="progress">
             <div className="bar-cont">
-              <div className="prog-bar"></div>
+            <div className="prog-bar">{progbar}</div>
             </div>
-            <h4 className="prog-pct">{progress}%</h4>
+            <h4 className="prog-pct">{percent}%</h4>
         </div>
     )
 }
 
 
 ProgressBar.defaultProps = {
-    progress: 50
+    percent: 50,
+    progbar: ''
 }
 
 export default ProgressBar;

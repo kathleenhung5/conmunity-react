@@ -16,5 +16,10 @@ function ConfirmBox(){
     )
 }
 
+ConfirmBox.defaultProps = {
+    title:'',
+    confirmItem: ''
+}
+
 
 export default ConfirmBox;
