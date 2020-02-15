@@ -3,7 +3,8 @@
 @import '../../style/func';
 
 .editToggle {
-    @include flex(row, flex-end, center);
+    // The comp itself won't need to aligned right, it'll be aligned right when it's added to the page
+    // @include flex(row, flex-end, center);
     
     .toggleIcon {
         font-size: 20px;

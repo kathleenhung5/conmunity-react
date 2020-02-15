@@ -14,5 +14,5 @@ export const DefaultTag = () => (
 );
 
 export const CustomTag = () => (
-    <Tag tagText={text("")}/>
+    <Tag text={text("")}/>
 )

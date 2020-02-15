@@ -4,15 +4,25 @@
 
 
 .tagCont {
-    padding: 5px;
-    border-radius: 8px;
-    background-color: $yellow;
-    width: 60px;
-
-    .tagClass {
+    display:inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+    .tagtext {
         @extend %font-body;
         color: white;
         text-align: center;
     }
+}
+
+.green {
+    background-color: $green;
+}
+
+.yellow {
+    background-color: $green;
+}
+
+.hidden {
+    visibility: hidden;
 }
 //need to make the approved tag red

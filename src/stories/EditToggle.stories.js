@@ -10,9 +10,5 @@ export default {
 }
 
 export const DefaultEditToggle = () => (
-    <EditToggle />
+    <EditToggle editMode={"edit mode",boolean(true)}/>
 );
-
-export const CustomEditToggle = () => (
-    <EditToggle />
-)
