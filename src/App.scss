@@ -1,11 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+// Pages Styles
+@import './pages/Main/main.scss';
+@import './pages/Projects/projects.scss';
 
-
-
+// Comps Styles
+@import './comp/AddButton/addbutton.scss';
 @import './comp/Profile/profile.scss';
 @import './comp/Project/project.scss';
 @import './comp/TaskListItem/tasklistitem.scss';
 @import './comp/SingleComment/singlecomment.scss';
-// import style in app 
 @import './comp/EditToggle/editToggle.scss';
 @import './comp/Tag/tag.scss';
