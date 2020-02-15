@@ -1,0 +1,18 @@
+@import '../../style/font';
+@import '../../style/colours';
+@import '../../style/func';
+
+
+.tagCont {
+    padding: 5px;
+    border-radius: 8px;
+    background-color: $yellow;
+    width: 60px;
+
+    .tagClass {
+        @extend %font-body;
+        color: white;
+        text-align: center;
+    }
+}
+//need to make the approved tag red
