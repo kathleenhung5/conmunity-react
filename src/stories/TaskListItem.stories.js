@@ -15,5 +15,9 @@ export const DefaultTaskListItem = () => (
 
 export const CustomTaskListItem = () => (
     <TaskListItem 
-    name={text('My Task')} alert={boolean("show alert",true)} tag={text("")}/>
+    name={text('My Task')} 
+    alert={boolean("show alert",true)} 
+    tag={text("")}
+    editMode={boolean("Edit Mode")}
+    />
 )

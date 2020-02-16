@@ -1,11 +1,12 @@
 import React,{useState} from 'react';
 import {FiAlertCircle} from 'react-icons/fi';
 import {IoIosArrowForward, IoIosArrowBack} from 'react-icons/io';
+import CheckBox from '@material-ui/core/Checkbox';
 
-function TaskListItem({name, tag, alert, onClick}){
+function TaskListItem({name, tag, alert, onClick, editMode}){
     const [view, setView] = useState(false);
     
-    // Which arrow to show 
+    // Which Arrow to show 
     var arrow = null;
     if(view){
         arrow = <IoIosArrowBack />
@@ -21,7 +22,7 @@ function TaskListItem({name, tag, alert, onClick}){
         taskAlertClass = "taskAlert invisible";
     }
 
-    // Show and hide tag
+    // Show and hide Tag
     var taskTagClass="";
     if(tag==""){
         taskTagClass="taskTag invisible";
@@ -30,18 +31,22 @@ function TaskListItem({name, tag, alert, onClick}){
     }
 
     return (
-        <div className="TaskListItem" onClick={()=>setView(!view)}>
+    <div className="taskListItem-cont">
+        <div className="taskListItem" onClick={()=>setView(!view)}>
             <h3>{name}</h3>
             {/* <Tag tag={tag} /> */}
             <div className={taskTagClass}>{tag}</div>
             <div className={taskAlertClass}><FiAlertCircle /></div>
             <div className="taskArrow">{arrow}</div>
         </div>
+        <CheckBox style={{visibility: editMode?"visible":"hidden"}} color="primary"/>
+    </div>
     )
 
 }
 
 TaskListItem.defaultProps = {
+    editMode: false,
     name: 'Task Name',
     tag: 'Tag Name',
     alert: false,

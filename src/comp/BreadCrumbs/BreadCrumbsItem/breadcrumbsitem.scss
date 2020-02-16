@@ -1,0 +1,22 @@
+@import '../../../style/font';
+@import '../../../style/colours';
+
+.BCItem-cont {
+    display:inline-block;
+    margin: 10px;
+    .BCItem {
+        @extend %font-body;
+        &:hover {
+            color: $blue;
+            font-weight: bold;
+        }
+    }
+    .active {
+        color: $blue;
+        font-weight: bold;
+    }
+    .inactive {
+        color: $grey;
+        cursor: pointer;
+    }
+}
