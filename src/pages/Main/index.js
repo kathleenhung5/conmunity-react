@@ -7,19 +7,17 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 
-function Main({page,company,username, setCurPage}){
+function Main(){
     return(
         <div>
             {/* Header */}
             <Container>
                 <Row className="align-items-center">
                     <Col md={3}>
-                        <Profile 
-                        companyName={company} 
-                        username={username} />
+                        <Profile />
                     </Col>
                     <Col>
-                        <BreadCrumbs page={page} setCurPage={setCurPage}/>
+                        <BreadCrumbs />
                     </Col>
                 </Row>
             </Container>

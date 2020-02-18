@@ -29,7 +29,8 @@ function BreadCrumbItem({page,index,active}){
 BreadCrumbItem.defaultProps = {
     page:"Projects", // Project(Floors), Floor, Window
     index:1,
-    active: false
+    active: false,
+    onClick:()=>{}
 
 }
 

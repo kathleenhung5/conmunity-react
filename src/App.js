@@ -11,10 +11,10 @@ function App() {
   return (
     <div className="App">
      <Main 
-     page={curPage} 
+     curPage={curPage} 
      setCurPage = {setCurPage}
-     company={curCompany} 
-     username={curUser}/>
+     curCompany={curCompany} 
+     curUser={curUser}/>
     </div>
   );
 }
