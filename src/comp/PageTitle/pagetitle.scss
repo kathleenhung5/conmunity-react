@@ -1,0 +1,21 @@
+@import '../../style/font';
+@import '../../style/colours';
+@import '../../style/func';
+
+
+.pagetitle {
+  @include flex(row, center, center);
+  .title-text {
+      color: $black;
+      @extend %font-h1;
+    }
+  .back-arrow .next-arrow {
+    color: $blue;
+  }
+  .proj-code {
+    margin-left: 10px;
+    color: $grey;
+    @extend %font-body;
+  }
+
+  }

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import {IoIosArrowForward, IoIosArrowBack} from 'react-icons/io';
 
@@ -10,12 +11,17 @@ function PageTitle(){
                 <IoIosArrowForward />
             </div>
             <div>Progress</div>
+
         </div>
     )
 }
 
+
 PageTitle.defaultProps = {
-    page: "Window"
+    title: "",
+    code: "",
+    arrows: true,
+    progress: 50
 }
 
 export default PageTitle;
