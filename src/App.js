@@ -1,21 +1,19 @@
-import React,{useState} from 'react';
+import React,{useContext} from 'react';
 import './App.scss';
 import Main from './pages/Main';
 
+const ctx = {
+  curPage: "Project",
+  curUser: "Ivan Kokovihin",
+  curCompany: ""
+};
+const Contxt = React.createContext(ctx);
 
 function App() {
-  const [curPage,setCurPage] = useState("Window");
-  const [curCompany, setCurCompany] = useState("Company Ltd");
-  const [curUser, setCurUser] = useState("Username");
-
   return (
-    <div className="App">
-     <Main 
-     curPage={curPage} 
-     setCurPage = {setCurPage}
-     curCompany={curCompany} 
-     curUser={curUser}/>
-    </div>
+    <Contxt.Provider value={ctx} className="App">
+     <Main />
+    </Contxt.Provider>
   );
 }
 

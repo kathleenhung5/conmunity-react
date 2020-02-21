@@ -1,0 +1,33 @@
+@import '../../style/font';
+@import '../../style/colours';
+
+.button-cont {
+    display: inline-block;
+    padding: 7px 20px;
+    border-radius: 10px;
+    h4 {
+        @extend %font-h2;
+    }
+    .white {
+        color: white;
+    }
+    .black {
+        color: $black;
+    }
+}
+
+.blue-fill {
+    background-color: $blue;
+}
+
+.red-fill {
+    background-color: $red;
+}
+
+.blue-outline {
+    border: solid 1px $blue;
+}
+
+.grey-outline {
+    border: solid 1px $grey;
+}

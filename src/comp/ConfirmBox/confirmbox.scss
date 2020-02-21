@@ -2,10 +2,6 @@
 @import '../../style/colours';
 @import '../../style/func';
 
-*{
-    background-color: $appBg;
-}
-
 .confirm-box {
     @include flex(column, center, center);
     width: 330px;
