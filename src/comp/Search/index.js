@@ -1,20 +1,18 @@
-import React from 'react';
+import React,{useState} from 'react';
 //import SearchBar from '@opuscapita/react-searchbar';
 import {IoMdSearch} from 'react-icons/io'
 
-function Search({onChange, searchItem}){
+function Search({searchItem}){
+const [txt, setTxt] = useState("");
     return(
         <div className="search">
-        <IoMdSearch className="search-icon"/>
-            <div className="inp-bar">
-                <h4>
+        <IoMdSearch className="search-icon"/> 
                 <input
                     type='text'
                     size='45'
                     placeholder={"Search "+searchItem}
-                    onChange={onChange}
-                    value="" /></h4>
-            </div>
+                    onChange={(text)=>setTxt(text.target.value)}
+                    value={txt} />
         </div>
     )
 }
@@ -22,7 +20,6 @@ function Search({onChange, searchItem}){
 //not sure how to change the text on input 
 Search.defaultProps = {
     searchItem: 'item',
-    onChange: ()=>{}
 }
 
 export default Search;

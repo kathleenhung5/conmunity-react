@@ -1,0 +1,47 @@
+@import '../../style/font';
+@import '../../style/colours';
+@import '../../style/func';
+
+
+.pageTitle-cont {
+  @include flex(column, center, center);
+  .pageTitle {
+    @include flex(row, center, center);
+    p {
+      margin-bottom: 0px;
+      @extend %font-detail-text;
+      font-size: 20px;
+    }
+    h3 {
+      color: $black;
+      @extend %font-h1;
+    }
+    .arrow {
+      color: $blue;
+      font-size: 35px;
+      margin: 10px;
+    }
+    .proj-code {
+      margin-left: 10px;
+      color: $grey;
+      @extend %font-body;
+    }
+  }
+  .prog {
+    @include flex(row, center, center);
+    margin-top: 15px;
+    .progress {
+      height: 20px;
+      width: 200px;    
+    }
+    h4 {
+      @extend %font-h2;
+      color: $blue;
+      margin-left: 10px;
+    }
+  }
+
+  .hidden {
+    visibility: hidden;
+  }
+  }

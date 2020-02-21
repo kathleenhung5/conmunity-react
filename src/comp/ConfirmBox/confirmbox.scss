@@ -1,0 +1,58 @@
+@import '../../style/font';
+@import '../../style/colours';
+@import '../../style/func';
+
+.confirm-box {
+    @include flex(column, center, center);
+    width: 330px;
+    height: 190px;
+    border-radius: 10px;
+    background-color: $white;
+
+    .modal-text{
+        @include flex(column, center, center);
+        background-color: $white;
+        h2{
+            @extend %font-h2;
+            background-color:$white;
+        }
+        h4{
+            @extend %font-body;
+            padding-top: 10px;
+            padding-bottom: 20px;
+            background-color: $white;
+        }
+    }
+
+    .modal-btns{
+        @include flex(row, center, center);
+        background-color: $white;
+    }
+}
+
+.cancel-btn{
+    color: $black;
+    @extend %font-h2;
+    text-align: center;
+    background-color: $white;
+    width: 140px;
+    height: 30px;
+    border: $grey solid 1px;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 4px;
+    margin-right: 10px;
+}
+
+.delete-btn{
+    color: $white;
+    @extend %font-h2;
+    text-align: center;
+    background-color: $red;
+    width: 140px;
+    height: 30px;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 4px;
+    margin-left: 10px;
+}

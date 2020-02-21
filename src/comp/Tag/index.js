@@ -13,10 +13,10 @@ function Tag({text}){
 
 
     // You want to change the bg color based on what the tag text is. You can use class to achieve that. 
-    var tagClass = "tagCont";
-    if(text=="Pending"){
+    var tagClass = "";
+    if(text==="Pending"){
         tagClass = "tagCont yellow";
-    } else if(text=="Approved"){
+    } else if(text==="Approved"){
         tagClass = "tagCont green";
     } else {
         tagClass = "hidden";

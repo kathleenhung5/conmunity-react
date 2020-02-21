@@ -1,0 +1,17 @@
+@import '../../style/font';
+@import '../../style/colours';
+@import '../../style/func';
+
+
+.main-cont {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    header {
+        @include flex(row, flex-start,center);
+        .profile {
+            margin-right: 20px;
+        }
+    }
+
+}

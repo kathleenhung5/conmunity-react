@@ -1,11 +1,24 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+@import 'style/colours'; 
+.App {
+    background-color: $appBg;
+    width: 100vw;
+    height: 100vh;
+}
 
+// Pages Styles
+@import './pages/Main/main.scss';
+@import './pages/Projects/projects.scss';
 
-
+// Comps Styles
+@import './comp/AddButton/addbutton.scss';
 @import './comp/Profile/profile.scss';
 @import './comp/Project/project.scss';
 @import './comp/TaskListItem/tasklistitem.scss';
 @import './comp/SingleComment/singlecomment.scss';
-// import style in app 
 @import './comp/EditToggle/editToggle.scss';
 @import './comp/Tag/tag.scss';
+@import './comp/BreadCrumbs/breadcrumbs.scss';
+@import './comp/BreadCrumbs/BreadCrumbsItem/breadcrumbsitem.scss';
+@import './comp/AddItem/additem.scss';
+@import './comp/Button/button.scss';
+@import './comp/PageTitle/pagetitle.scss';

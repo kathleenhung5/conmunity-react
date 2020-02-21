@@ -1,0 +1,27 @@
+@import '../../style/font';
+@import '../../style/colours';
+@import '../../style/func';
+
+.addItem-cont {
+    display: inline-block;
+    background-color: white;
+    border-radius: 15px;
+    padding: 40px 50px;
+    @extend %drop-shadow;
+    @include flex(column, space-between, center);
+    h3 {
+        @extend %font-h2;
+        color: $blue;
+    }
+    p {
+        @extend %font-body;
+    }
+    input {
+        border: solid 1px $blue;
+        border-radius: 8px;
+        padding: 5px;
+        width: 80px;
+        text-align: center;
+        margin: 10px;
+    }
+}

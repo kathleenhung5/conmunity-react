@@ -2,40 +2,43 @@
 @import '../../style/colours';
 @import '../../style/func';
 
-
-.TaskListItem {
-    @extend %drop-shadow;
-    @include flex(row, space-between, center);
-    padding: 10px 20px;
-    border-radius: 10px;
-    
-    h3 {
-        @extend %font-h2;
-        flex: 7;
-    }
-
-    .taskTag {
-        flex: 2;
-        @include flex(row, flex-end, center);
-        @extend %font-body;
-    }
-
-    .taskAlert {
-        font-size: 20px;
+.taskListItem-cont {
+    @include flex(row, center, center);
+    .taskListItem {
         flex:1;
-        color: darkorange;
-        @include flex(row, flex-end, center);
+        @extend %drop-shadow;
+        @include flex(row, space-between, center);
+        padding: 10px 20px;
+        border-radius: 10px;
+        
+        h3 {
+            @extend %font-h2;
+            flex: 7;
+        }
+    
+        .taskTag {
+            flex: 2;
+            @include flex(row, flex-end, center);
+            @extend %font-body;
+        }
+    
+        .taskAlert {
+            font-size: 20px;
+            flex:1;
+            color: darkorange;
+            @include flex(row, flex-end, center);
+        }
+    
+        .taskArrow {
+            color: $blue;
+            font-size: 20px;
+            flex: 1;
+            @include flex(row, flex-end, center);
+        }
+    
+        .invisible {
+            visibility: "hidden"
+        }
+    
     }
-
-    .taskArrow {
-        color: $blue;
-        font-size: 20px;
-        flex: 1;
-        @include flex(row, flex-end, center);
-    }
-
-    .invisible {
-        visibility: hidden;
-    }
-
 }
