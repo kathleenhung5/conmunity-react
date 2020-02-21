@@ -1,0 +1,7 @@
+@import '../../style/font';
+@import '../../style/colours';
+@import '../../style/func';
+
+.projects-cont {
+    @include grid(4);
+}

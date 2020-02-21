@@ -1,19 +1,22 @@
-import React,{useContext} from 'react';
+import React from 'react';
 import './App.scss';
 import Main from './pages/Main';
 
-const ctx = {
-  curPage: "Project",
+var ctx = {
+  curPage: "Projects",
   curUser: "Ivan Kokovihin",
-  curCompany: ""
+  curCompany: "High Rise Glass"
 };
-const Contxt = React.createContext(ctx);
+export const Contxt = React.createContext(ctx);
 
 function App() {
+
   return (
-    <Contxt.Provider value={ctx} className="App">
-     <Main />
-    </Contxt.Provider>
+    <div className="App">
+      <Contxt.Provider value={ctx} >
+        <Main />
+      </Contxt.Provider>
+    </div>
   );
 }
 

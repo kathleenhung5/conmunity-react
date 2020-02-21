@@ -1,7 +1,6 @@
 
 import React from 'react';
 import {IoIosArrowForward, IoIosArrowBack} from 'react-icons/io';
-// import ProgressBar from '../Progress';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 
 function PageTitle({title,code,progress}){
@@ -12,7 +11,7 @@ function PageTitle({title,code,progress}){
                 <IoIosArrowBack className="arrow" />
                 <h3>{title}</h3>
                 <IoIosArrowForward className="arrow"/>
-                <p>{code}</p>
+                <p className="proj-code">{code}</p>
             </div>
             <div className="prog">
                 <ProgressBar now={progress}/>   

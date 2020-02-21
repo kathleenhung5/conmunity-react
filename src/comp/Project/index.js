@@ -1,20 +1,20 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 function Project({name, progress, code, onClick}){
     return(
-        <div className="project" onClick={onClick}>
+        <Link to="/projectpage" className="project" onClick={onClick}>
            <div>{progress}%</div>
            <h3>{name}</h3>
            <h4>{code}</h4>
-        </div>
+        </Link>
     )
 }
 
 Project.defaultProps = {
     name: 'Project Name',
     progress: 0,
-    code: "ABC123",
-    onClick: ()=>{}
+    code: "ABC123"
 }
 
 export default Project;

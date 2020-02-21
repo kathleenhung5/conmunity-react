@@ -3,7 +3,11 @@
     background-color: $appBg;
     width: 100vw;
     height: 100vh;
+    a {
+        text-decoration: none;
+    }
 }
+
 
 // Pages Styles
 @import './pages/Main/main.scss';
