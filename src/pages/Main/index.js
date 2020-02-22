@@ -25,16 +25,16 @@ function Main(){
         <Router >
             {/* Header */}
             <header>
-                <Profile username={ctx.curUser} companyName={ctx.curCompany} />
-                <BreadCrumbs page={ctx.curPage}/>
+                <Profile username={ctx.appctx.curUser} companyName={ctx.appctx.curCompany} />
+                <BreadCrumbs page={ctx.appctx.curPage}/>
             </header>
             {/* Page title */}
             <div>
-                <PageTitle title={ctx.curPage}/>
+                <PageTitle title={ctx.appctx.cur}/>
             </div>
             {/* Content */}
-            <Switch>
-                <Route path="/">
+            <Switch >
+                <Route exact path="/">
                     <Projects />
                 </Route>
                 <Route path="/projectpage">

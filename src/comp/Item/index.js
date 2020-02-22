@@ -1,9 +1,13 @@
-import React,{useState} from 'react';
+import React,{useContext} from 'react';
 import {FiAlertCircle} from 'react-icons/fi';
+import ProgressBar from '../ProgressBar';
+import CheckBox from '@material-ui/core/Checkbox';
+import {Link} from 'react-router-dom';
+import {Contxt} from '../../App';
 
 
-function Item({itemName, onClick, alert, editMode, editSelected, complete, progress}){
-    const [view, setView] = useState(false);
+function Item({itemName, alert, editMode, progress}){
+    const ctx=useContext(Contxt);
 
         // Show and hide Alert
         var itemAlertClass = "";
@@ -13,20 +17,19 @@ function Item({itemName, onClick, alert, editMode, editSelected, complete, progr
             itemAlertClass = "itemAlert invisible";
         }
 
-        // Show and hide editMode
-        var editModeClass = "";
-        if(editMode){
-            editModeClass = "editMode";
-        } else {
-            editModeClass = "editMode invisible";
-        }
-
     return (
-        <div className="Item" onClick={()=>setView(!view)}>
-            <h3>{itemName}</h3>
-            <div className={itemAlertClass}><FiAlertCircle /></div>
-            <div className={editModeClass}>{editMode}</div>
-        </div>
+        <Link 
+        to={ctx.appctx.curPage=='Project'?"/floor":"/window"} 
+        className="item-cont"
+        onClick={()=>ctx.dispatch({type: ctx.appctx.curPage=='Project'?'Floor':'Window',text:`${itemName}`})}
+        >
+            <div className="item" >
+            <h3>{ctx.appctx.curPage=='Project'?"Floor ":"Window "}{itemName}</h3>
+                <ProgressBar progress={progress} />
+                <div className={itemAlertClass}><FiAlertCircle /></div>
+            </div>
+            <CheckBox style={{visibility: editMode? "visible":"hidden"}} />
+        </Link>
     )
 
 }

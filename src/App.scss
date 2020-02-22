@@ -12,6 +12,9 @@
 // Pages Styles
 @import './pages/Main/main.scss';
 @import './pages/Projects/projects.scss';
+@import './pages/ProjectPage/projectpage.scss';
+@import './pages/Floor/floor.scss';
+@import './pages/Window/window.scss';
 
 // Comps Styles
 @import './comp/AddButton/addbutton.scss';
@@ -26,3 +29,5 @@
 @import './comp/AddItem/additem.scss';
 @import './comp/Button/button.scss';
 @import './comp/PageTitle/pagetitle.scss';
+@import './comp/ProgressBar/progressbar.scss';
+@import './comp/Item/item.scss';

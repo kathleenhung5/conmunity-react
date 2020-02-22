@@ -4,4 +4,5 @@
 
 .projects-cont {
     @include grid(4);
+    @extend %routes;
 }
