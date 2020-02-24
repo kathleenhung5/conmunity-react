@@ -1,5 +1,7 @@
 import React,{useContext} from 'react';
 import Item from '../../comp/Item';
+import Search from '../../comp/Search';
+import AddButton from '../../comp/AddButton';
 import {Contxt} from '../../App';
 
 function ProjectPage(){
@@ -27,6 +29,11 @@ function ProjectPage(){
 
     return(
         <div className="projectpage-cont">
+            <div className="search-area">
+                <p>Total floors: 3</p>
+                <Search searchItem="floor" />
+            </div>
+            <div>
             {
                 floors.map((obj,ind)=>{
                     return <Item 
@@ -35,6 +42,7 @@ function ProjectPage(){
                     />
                 })
             }
+            </div>
         </div>
     )
 }

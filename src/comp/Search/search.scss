@@ -8,6 +8,7 @@
 
 .search {
     @include flex(row, flex-start,center);
+    flex: 1;
     border-radius: 10px;
     background-color: $white;
     height: 40px;
@@ -21,9 +22,7 @@
         @extend %font-body;
         flex: 1;
         background-color: white;
-        
         border: none;
-        height: 100%;
     }
     
 }

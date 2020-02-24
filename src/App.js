@@ -15,16 +15,16 @@ export const Contxt = React.createContext(ctx);
 function reducer(appctx,action){
   switch (action.type) {
     case 'Projects':
-        return {curPage: 'Projects'};
+        return {...appctx,curPage: 'Projects'};
         break
     case 'Project':
-        return {curPage: 'Project', curProject: action.text};
+        return {...appctx,curPage: 'Project', curProject: action.text};
         break
     case 'Floor':
-        return {curPage: 'Floor', curFloor: action.text};
+        return {...appctx,curPage: 'Floor', curFloor: action.text};
         break
     case 'Window':
-        return {curPage: 'Window', curWindow: action.text};
+        return {...appctx,curPage: 'Window', curWindow: action.text};
 
   }
 }

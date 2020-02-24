@@ -5,6 +5,16 @@
     height: 100vh;
     a {
         text-decoration: none;
+        &:visited {
+            color: $black;
+        }
+        &:active {
+            text-decoration: none;
+            color: $black;
+        }
+    }
+    input:focus {
+        outline:none;
     }
 }
 
@@ -31,3 +41,4 @@
 @import './comp/PageTitle/pagetitle.scss';
 @import './comp/ProgressBar/progressbar.scss';
 @import './comp/Item/item.scss';
+@import './comp/Search/search.scss';

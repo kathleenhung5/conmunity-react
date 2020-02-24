@@ -19,7 +19,7 @@ import {Contxt} from '../../App';
 
 function Main(){
     const ctx = useContext(Contxt);
-
+    console.log(ctx.appctx);
     return(
     <div className="main-cont">
         <Router >

@@ -6,30 +6,43 @@ import {Contxt} from '../../App';
 
 function PageTitle({title,code,progress}){
     const ctx=useContext(Contxt);
-    // console.log('pagetitle, curpage',ctx.appctx.curPage);
-    // console.log('pagetitle curproject', ctx.appctx.curProject);
+    var codeclass = '';
+    var progressclass = '';
+    var arrowclass = '';
     switch(ctx.appctx.curPage){
         case 'Projects':
             title = "Projects";
+            arrowclass = 'hidden';
+            codeclass="proj-code";
+            progressclass = "hidden";
             break
         case 'Project':
             title = ctx.appctx.curProject;
+            arrowclass = 'hidden';
+            codeclass="hidden";
+            progressclass = "pageTitle-progress";
             break
         case 'Floor':
             title = "Floor " + ctx.appctx.curFloor;
+            arrowclass = 'arrow';
+            codeclass="hidden";
+            progressclass = "pageTitle-progress";
             break
         case 'Window':
             title = "Window " + ctx.appctx.curWindow;
+            arrowclass = 'arrow';
+            codeclass="hidden";
+            progressclass = "pageTitle-progress";
     }
     return(
         <div className="pageTitle-cont">
             <div className="pageTitle">
-                <IoIosArrowBack className="arrow" />
+                <IoIosArrowBack className={arrowclass} />
                 <h3>{title}</h3>
-                <IoIosArrowForward className="arrow"/>
-                <p className="proj-code">{code}</p>
+                <IoIosArrowForward className={arrowclass}/>
+                <p className={codeclass}>{code}</p>
             </div>
-            <div className="pageTitle-progress">
+            <div className={progressclass}>
                 <ProgressBar progress={progress}/>   
             </div>
             
