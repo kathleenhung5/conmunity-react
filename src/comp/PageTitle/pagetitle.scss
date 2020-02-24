@@ -26,20 +26,11 @@
       color: $grey;
       @extend %font-body;
     }
-  }
-  .prog {
-    @include flex(row, center, center);
-    margin-top: 15px;
-    .progress {
-      height: 20px;
-      width: 200px;    
-    }
-    h4 {
-      @extend %font-h2;
-      color: $blue;
-      margin-left: 10px;
+    .pageTitle-progress {
+      width: 400px;
     }
   }
+ 
 
   .hidden {
     visibility: hidden;

@@ -4,3 +4,15 @@
     justify-content: $just;
     align-items: $item;
 }
+
+@mixin grid($num){
+    display: grid;
+    grid-template-columns: repeat($num, 1fr);
+}
+
+%routes {
+    width: 70%;
+    margin: 40px auto;
+    // overflow-y: scroll;
+    height: 50vh;
+}

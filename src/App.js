@@ -1,19 +1,42 @@
-import React,{useContext} from 'react';
+import React, { useReducer } from 'react';
 import './App.scss';
 import Main from './pages/Main';
 
 const ctx = {
-  curPage: "Project",
+  curPage: "Projects", // Projects, Project, Floor, Window
+  curProject: "",
+  curFloor: 0,
+  curWindow: 0,
   curUser: "Ivan Kokovihin",
-  curCompany: ""
+  curCompany: "High Rise Glass"
 };
-const Contxt = React.createContext(ctx);
+export const Contxt = React.createContext(ctx);
+
+function reducer(appctx,action){
+  switch (action.type) {
+    case 'Projects':
+        return {curPage: 'Projects'};
+        break
+    case 'Project':
+        return {curPage: 'Project', curProject: action.text};
+        break
+    case 'Floor':
+        return {curPage: 'Floor', curFloor: action.text};
+        break
+    case 'Window':
+        return {curPage: 'Window', curWindow: action.text};
+
+  }
+}
 
 function App() {
+  const [appctx,dispatch] = useReducer(reducer, ctx);
   return (
-    <Contxt.Provider value={ctx} className="App">
-     <Main />
-    </Contxt.Provider>
+    <div className="App">
+      <Contxt.Provider value={{appctx,dispatch}} >
+        <Main />
+      </Contxt.Provider>
+    </div>
   );
 }
 

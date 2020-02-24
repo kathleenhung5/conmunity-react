@@ -1,20 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import {Link} from 'react-router-dom';
+import {Contxt} from '../../App';
 
-function Project({name, progress, code, onClick}){
+function Project({name, progress, code}){
+    const ctx=useContext(Contxt);
     return(
-        <div className="project" onClick={onClick}>
+        <Link to="/projectpage" className="project" onClick={()=>ctx.dispatch({type:'Project',text:`${name}`})}>
            <div>{progress}%</div>
            <h3>{name}</h3>
            <h4>{code}</h4>
-        </div>
+        </Link>
     )
 }
 
 Project.defaultProps = {
     name: 'Project Name',
     progress: 0,
-    code: "ABC123",
-    onClick: ()=>{}
+    code: "ABC123"
 }
 
 export default Project;

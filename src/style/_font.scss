@@ -1,5 +1,5 @@
 @import 'colours';
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:600,700&display=swap');
 
 $fontfamily: 'Source Sans Pro', sans-serif;
 
@@ -10,7 +10,7 @@ $fontfamily: 'Source Sans Pro', sans-serif;
 %font-body {
     font-family: $fontfamily;
     font-size: 14px;
-    font-weight: 300;
+    font-weight: 600;
     margin:0px;
 }
 
@@ -19,7 +19,7 @@ $fontfamily: 'Source Sans Pro', sans-serif;
 %font-detail-text {
     font-family: $fontfamily;
     font-size: 12px;
-    font-weight: 300;
+    font-weight: 600;
     margin:0px;
     color:$grey;
 }
@@ -30,7 +30,7 @@ $fontfamily: 'Source Sans Pro', sans-serif;
 %font-h2 {
     font-family: $fontfamily;
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 700;
     margin:0px;
 }
 

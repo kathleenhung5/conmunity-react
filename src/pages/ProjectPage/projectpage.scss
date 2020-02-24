@@ -2,7 +2,6 @@
 @import '../../style/colours';
 @import '../../style/func';
 
-.projects-cont {
-    @include grid(4);
+.projectpage-cont {
     @extend %routes;
 }

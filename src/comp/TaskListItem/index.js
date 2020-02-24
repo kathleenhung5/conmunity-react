@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import {FiAlertCircle} from 'react-icons/fi';
 import {IoIosArrowForward, IoIosArrowBack} from 'react-icons/io';
 import CheckBox from '@material-ui/core/Checkbox';
+import Tag from '../Tag';
 
 function TaskListItem({name, tag, alert, onClick, editMode}){
     const [view, setView] = useState(false);
@@ -35,7 +36,7 @@ function TaskListItem({name, tag, alert, onClick, editMode}){
         <div className="taskListItem" onClick={()=>setView(!view)}>
             <h3>{name}</h3>
             {/* <Tag tag={tag} /> */}
-            <div className={taskTagClass}>{tag}</div>
+            <div className={taskTagClass}><Tag text={tag}/></div>
             <div className={taskAlertClass}><FiAlertCircle /></div>
             <div className="taskArrow">{arrow}</div>
         </div>

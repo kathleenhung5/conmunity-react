@@ -15,5 +15,9 @@ export const DefaultItem = () => (
 
 export const CustomItem = () => (
     <Item 
-    name={text('My Task')} alert={boolean("show alert",true)} tag={text("")}/>
+    name={text('My Task')} 
+    alert={boolean("show alert",true)} 
+    tag={text("")} 
+    editMode={boolean("Edit mode",false)}
+    progress={20}/>
 )

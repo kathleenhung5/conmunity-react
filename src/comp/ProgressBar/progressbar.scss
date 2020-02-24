@@ -1,0 +1,24 @@
+@import '../../style/font';
+@import '../../style/colours';
+@import '../../style/func';
+
+.progressbar-cont {
+    @include flex(row,center,center);
+    width: 250px;
+    margin: 10px 10px;
+    .progressbar {
+        height: 20px;
+        border: solid 2px $blue;
+        border-radius: 4px;
+        flex: 1;
+        & > div {
+            background-color: $blue;
+            height: 100%;
+        }
+    }
+    h4 {
+        @extend %font-body;
+        color: $blue;
+        margin-left: 10px;
+    }
+}

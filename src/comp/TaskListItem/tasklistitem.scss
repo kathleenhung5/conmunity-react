@@ -4,7 +4,10 @@
 
 .taskListItem-cont {
     @include flex(row, center, center);
+    margin-bottom: 10px;
+    
     .taskListItem {
+        background-color: white;
         flex:1;
         @extend %drop-shadow;
         @include flex(row, space-between, center);
