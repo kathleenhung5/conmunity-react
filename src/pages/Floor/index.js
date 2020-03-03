@@ -3,43 +3,53 @@ import Item from '../../comp/Item';
 import {Contxt} from '../../App';
 import AddButton from '../../comp/AddButton';
 import Search from '../../comp/Search';
+import floorimg from '../../img/floorplan.png';
+import {Data} from '../../comp/Data/Data';
 
 function Floor(){
     const ctx=useContext(Contxt);
-
-    const windows = [
-        {
-            window: 1,
-            progress: 43,
-            deleted: 0
-        },
-        {
-            window: 2,
-            progress: 78,
-            deleted: 0
-        },
-        {
-            window: 3,
-            progress: 86, 
-            deleted: 0
+    var windows = [];
+    // find the current floor in Data to display windows
+    for(var i=0;i<Data[0].projects.length;i++){
+        if(Data[0].projects[i].name==ctx.appctx.curProject){
+            var floors = Data[0].projects[i].floors;
+            console.log('lala');
+            for (var i=0;i<floors.length;i++){
+                if(floors[i].num==ctx.appctx.curFloor){
+                    windows = floors[i].windows;
+                }
+            }
         }
-    ];
+    }
 
     return(
         <div className='floor-cont'>
             <div className="search-area">
                 <Search searchItem="a window" />
             </div>
-            <div>
-            {
-                windows.map((obj,ind)=>{
-                    return <Item 
-                        itemName={obj.window}
-                        progress={obj.progress}
-                    />
-                })
-            }
+
+            <div className="floor-lower">
+                <div className="floorplan-cont">
+                    <div>
+                        <p>Floor plan</p> 
+                        <AddButton text="upload floorplan"/>
+                    </div>
+                    <div className="floorplan">
+                        <img src={floorimg} />
+                    </div>
+                </div>
+                <div className="floor-list">
+                {
+                    windows.map((obj,ind)=>{
+                        return <Item 
+                            itemName={obj.num}
+                            progress={obj.progress}
+                        />
+                    })
+                }
+                </div>
             </div>
+            
         </div>
     )
 }

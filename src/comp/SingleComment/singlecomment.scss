@@ -3,7 +3,7 @@
 @import '../../style/func';
 
 .singleComment {
-
+    margin-bottom: 10px;
     h4 {
         @extend %font-detail-text;
     }

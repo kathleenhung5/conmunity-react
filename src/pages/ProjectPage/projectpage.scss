@@ -4,4 +4,9 @@
 
 .projectpage-cont {
     @extend %routes;
+    .search-area {
+        p {
+            margin-right: 20px;
+        }
+    }
 }

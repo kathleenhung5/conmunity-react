@@ -3,29 +3,18 @@ import Item from '../../comp/Item';
 import Search from '../../comp/Search';
 import AddButton from '../../comp/AddButton';
 import {Contxt} from '../../App';
+import {Data} from '../../comp/Data/Data';
 
 function ProjectPage(){
     const ctx=useContext(Contxt);
-    // console.log('project page, curpage',ctx.appctx.curPage);
-    // console.log('project page curproject', ctx.appctx.curProject);
-    
-    const floors = [
-        {
-            floor: 1,
-            progress: 23,
-            deleted: 0
-        },
-        {
-            floor: 2,
-            progress: 35,
-            deleted: 0
-        },
-        {
-            floor: 3,
-            progress: 49, 
-            deleted: 0
+
+    var floors = [];
+    // find the right project and display floors
+    for(var i=0;i<Data[0].projects.length;i++){
+        if(Data[0].projects[i].name==ctx.appctx.curProject){
+            floors = Data[0].projects[i].floors;
         }
-    ];
+    }
 
     return(
         <div className="projectpage-cont">
@@ -37,7 +26,7 @@ function ProjectPage(){
             {
                 floors.map((obj,ind)=>{
                     return <Item 
-                        itemName={obj.floor}
+                        itemName={obj.num}
                         progress={obj.progress}
                     />
                 })

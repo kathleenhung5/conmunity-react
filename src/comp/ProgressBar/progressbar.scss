@@ -4,7 +4,7 @@
 
 .progressbar-cont {
     @include flex(row,center,center);
-    width: 250px;
+    width: 200px;
     margin: 10px 10px;
     .progressbar {
         height: 20px;
@@ -19,6 +19,6 @@
     h4 {
         @extend %font-body;
         color: $blue;
-        margin-left: 10px;
+        margin-left: 10px !important;
     }
 }

@@ -4,4 +4,27 @@
 
 .floor-cont {
     @extend %routes;
+    .floor-lower {
+        @include flex(row, center, center);
+        .floorplan-cont {
+            flex:1;
+            div:first-child {
+                @include flex(row,space-between, center);
+            }
+            .floorplan {
+                flex:1;
+                @include flex(row, center, center);
+                margin-right: 30px;
+                background: white;
+                @extend %drop-shadow;
+                border-radius: 20px;
+                overflow: hidden;
+                
+            }
+            
+        }
+        .floor-list {
+            flex:1;
+        }
+    }
 }

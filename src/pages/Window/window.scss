@@ -4,4 +4,72 @@
 
 .window-cont {
     @extend %routes;
+    .add-task-cont {
+        @include flex(row, flex-start, center);
+        margin-bottom: 20px;
+        input {
+            text-align: center;
+            border: none;
+            @extend %font-body;
+            width: 50px;
+        }
+        p {
+            margin: 0px 10px;
+        }
+    }
+    .window-lower {
+        @include flex(row, center, stretch);
+        .tasklist-cont {
+            flex:1;
+        }
+        .task-card-cont {
+            flex:1;
+            margin-bottom: 50px;
+            background-color: white;
+            @extend %drop-shadow;
+            border-radius: 20px;
+            padding: 20px;
+            .task-des {
+                @include flex(column,center,flex-end);
+                margin-bottom: 30px;
+                h3 {
+                    @extend %font-h2;
+                    margin-bottom: 10px !important;
+                    align-self: flex-start;
+                }
+                p {
+                    @extend %font-body;
+                    align-self: flex-start;
+                }
+            }
+            .task-comments {
+                margin-bottom: 30px;
+                h2 {
+                    @extend %font-h2;
+                }
+                .task-comments-button {
+                    @include flex(row, flex-end,center);
+                    margin-top: 10px;
+                    &>div {
+                        margin-left: 10px;
+                    }
+                }
+            }
+            .comment-cont {
+                @include flex(column, center,flex-end);
+                p {
+                    @extend %font-detail-text;
+                    align-self: flex-start;
+                }
+                textarea {
+                    align-self: stretch;
+                    border:none;
+                    background-color: rgb(245,245,245);;
+                    min-height: 50px;
+                    margin: 5px 0px 20px 0px;
+                }
+            }
+        }   
+        
+    }
 }

@@ -3,6 +3,7 @@
     background-color: $appBg;
     width: 100vw;
     height: 100vh;
+    overflow:scroll;
     a {
         text-decoration: none;
         &:visited {

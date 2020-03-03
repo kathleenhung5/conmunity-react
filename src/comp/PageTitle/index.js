@@ -43,7 +43,7 @@ function PageTitle({title,code,progress}){
                 <p className={codeclass}>{code}</p>
             </div>
             <div className={progressclass}>
-                <ProgressBar progress={progress}/>   
+                <ProgressBar progress={ctx.appctx.curProgress}/>   
             </div>
             
         </div>

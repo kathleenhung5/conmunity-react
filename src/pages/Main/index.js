@@ -30,7 +30,7 @@ function Main(){
             </header>
             {/* Page title */}
             <div>
-                <PageTitle title={ctx.appctx.cur}/>
+                <PageTitle />
             </div>
             {/* Content */}
             <Switch >
