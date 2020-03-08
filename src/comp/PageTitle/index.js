@@ -1,10 +1,11 @@
 
-import React,{useContext} from 'react';
+import React,{useContext, useState, useEffect} from 'react';
 import {IoIosArrowForward, IoIosArrowBack} from 'react-icons/io';
 import ProgressBar from '../ProgressBar';
 import {Contxt} from '../../App';
+import {Data} from '../../comp/Data/Data';
 
-function PageTitle({title,code,progress}){
+function PageTitle({title,code}){
     const ctx=useContext(Contxt);
     var codeclass = '';
     var progressclass = '';
@@ -34,6 +35,34 @@ function PageTitle({title,code,progress}){
             codeclass="hidden";
             progressclass = "pageTitle-progress";
     }
+
+
+    const [prog,setProg] = useState(0);
+    // find the right progress to show on current page
+    useEffect(()=>{
+        for(var i=0;i<Data[0].projects.length;i++){
+            if(ctx.appctx.curProject!=="" && Data[0].projects[i].name==ctx.appctx.curProject){
+                var floors = Data[0].projects[i].floors;
+                setProg(Data[0].projects[i].progress);
+                console.log('set project progress');
+                for (var i=0;i<floors.length;i++){
+                    if(ctx.appctx.curFloor!==0 && floors[i].num==ctx.appctx.curFloor){
+                        var windows = floors[i].windows;
+                        setProg(floors[i].progress);
+                        console.log('set floor progress');
+                        for(var i=0;i<windows.length;i++){
+                            if(ctx.appctx.curWindow!==0 && windows[i].num==ctx.appctx.curWindow){
+                                setProg(windows[i].progress);
+                                console.log('set window progress');
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },[ctx.appctx.curPage]);
+    
+
     return(
         <div className="pageTitle-cont">
             <div className="pageTitle">
@@ -43,7 +72,7 @@ function PageTitle({title,code,progress}){
                 <p className={codeclass}>{code}</p>
             </div>
             <div className={progressclass}>
-                <ProgressBar progress={ctx.appctx.curProgress}/>   
+                <ProgressBar progress={prog}/>   
             </div>
             
         </div>

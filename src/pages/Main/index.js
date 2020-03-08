@@ -1,4 +1,4 @@
-import React,{useContext} from 'react';
+import React,{useContext, useEffect} from 'react';
 import {
     BrowserRouter as Router,
     Switch,
@@ -19,7 +19,12 @@ import {Contxt} from '../../App';
 
 function Main(){
     const ctx = useContext(Contxt);
-    console.log(ctx.appctx);
+    useEffect(()=>{
+        // store the context in local storage
+        localStorage.setItem('ctx', JSON.stringify(ctx.appctx));
+    },[ctx.appctx.curPage]);
+
+
     return(
     <div className="main-cont">
         <Router >

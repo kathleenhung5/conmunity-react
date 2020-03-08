@@ -40,13 +40,15 @@ export const Data = [
                                         name: "Painting",
                                         tag: '',
                                         alert: true,
+                                        comments:[],
                                         des: 'Paint the window frame with white paint'
                                     },
                                     {
                                         name: "Inspection",
                                         tag: '',
                                         alert: false,
-                                        des: 'Two inspectors should check this window.'
+                                        des: 'Two inspectors should check this window.',
+                                        comments:[]
                                     } 
                                 ]
                             },

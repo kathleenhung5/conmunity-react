@@ -21,7 +21,9 @@ function Item({itemName, alert, editMode, progress}){
         <Link 
         to={ctx.appctx.curPage=='Project'?"/floor":"/window"} 
         className="item-cont"
-        onClick={()=>ctx.dispatch({type: ctx.appctx.curPage=='Project'?'Floor':'Window',text:`${itemName}`,progress:progress})}
+        onClick={()=>{
+            ctx.dispatch({type: ctx.appctx.curPage=='Project'?'Floor':'Window',text:`${itemName}`});
+        }}
         >
             <div className="item" >
             <h3>{ctx.appctx.curPage=='Project'?"Floor ":"Window "}{itemName}</h3>

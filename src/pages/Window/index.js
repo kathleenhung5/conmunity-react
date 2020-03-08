@@ -1,4 +1,4 @@
-import React,{useContext,useState} from 'react';
+import React,{useContext,useState,useEffect} from 'react';
 import TaskListItem from '../../comp/TaskListItem';
 import {Contxt} from '../../App';
 import Button from '../../comp/Button';
@@ -7,28 +7,42 @@ import {Data} from '../../comp/Data/Data';
 
 function Window(){
     const ctx=useContext(Contxt);
-    var tasks = [];
-    // find the current Window in Data to display tasks
-    for(var i=0;i<Data[0].projects.length;i++){
-        if(Data[0].projects[i].name==ctx.appctx.curProject){
-            var floors = Data[0].projects[i].floors;
-            for (var i=0;i<floors.length;i++){
-                if(floors[i].num==ctx.appctx.curFloor){
-                    var windows = floors[i].windows;
-                    for(var i=0;i<windows.length;i++){
-                        if(windows[i].num==ctx.appctx.curWindow){
-                            tasks = windows[i].tasks;
+    const [tasks,setTasks] = useState([]);
+    useEffect(()=>{
+        // find the current Window in Data to display tasks
+        for(var i=0;i<Data[0].projects.length;i++){
+            if(Data[0].projects[i].name==ctx.appctx.curProject){
+                var floors = Data[0].projects[i].floors;
+                for (var i=0;i<floors.length;i++){
+                    if(floors[i].num==ctx.appctx.curFloor){
+                        var windows = floors[i].windows;
+                        for(var i=0;i<windows.length;i++){
+                            if(windows[i].num==ctx.appctx.curWindow){
+                                // set and display tasks
+                                setTasks(windows[i].tasks);
+                                // set progress
+                                ctx.dispatch({type:'Progress',progress:windows[i].progress}); 
+                            }
                         }
                     }
                 }
             }
         }
-    }
-
+       
+    },[]);
+    
+    
     var task = {};
     const [curTask, setCurTask] = useState({});
+    const [curInd, setI] = useState(-1);
     const [comments, setComments] = useState([]);
     console.log('curTask comment',curTask.comments);
+
+    const handleClick = (ind) =>{
+        setI(ind);
+        setCurTask(tasks[ind]);
+        setComments(tasks[ind].comments);
+    }
     return(
         <div className="window-cont">
             <div className="add-task-cont">
@@ -41,13 +55,11 @@ function Window(){
                     {
                     tasks.map((obj,ind)=>{
                         return <TaskListItem 
-                        onClick={()=>{
-                            setCurTask(tasks[ind]);
-                            setComments(tasks[ind].comments)
-                        }} 
+                        onClick={handleClick.bind(this, ind)} 
                         username={obj.username}
                         comment={obj.comment}
                         stamp={obj.stamp}
+                        open={curInd === ind}
                         />
                     })
                     }

@@ -1,4 +1,4 @@
-import React,{useContext} from 'react';
+import React,{useContext,useEffect,useState} from 'react';
 import Item from '../../comp/Item';
 import {Contxt} from '../../App';
 import AddButton from '../../comp/AddButton';
@@ -8,20 +8,24 @@ import {Data} from '../../comp/Data/Data';
 
 function Floor(){
     const ctx=useContext(Contxt);
-    var windows = [];
-    // find the current floor in Data to display windows
-    for(var i=0;i<Data[0].projects.length;i++){
-        if(Data[0].projects[i].name==ctx.appctx.curProject){
-            var floors = Data[0].projects[i].floors;
-            console.log('lala');
-            for (var i=0;i<floors.length;i++){
-                if(floors[i].num==ctx.appctx.curFloor){
-                    windows = floors[i].windows;
+    const [windows, setWindows] = useState([]);
+    useEffect(()=>{
+       // find the current floor in Data to display windows
+        for(var i=0;i<Data[0].projects.length;i++){
+            if(Data[0].projects[i].name==ctx.appctx.curProject){
+                 var floors = Data[0].projects[i].floors;
+                for (var i=0;i<floors.length;i++){
+                     if(floors[i].num==ctx.appctx.curFloor){
+                        //display windows
+                        setWindows(floors[i].windows);
+                        // set progress
+                        ctx.dispatch({type:'Progress',progress:floors[i].progress});
+                    }
                 }
             }
         }
-    }
-
+    },[])
+    
     return(
         <div className='floor-cont'>
             <div className="search-area">

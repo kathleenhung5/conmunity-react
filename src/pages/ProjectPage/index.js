@@ -1,4 +1,4 @@
-import React,{useContext} from 'react';
+import React,{useContext,useEffect,useState} from 'react';
 import Item from '../../comp/Item';
 import Search from '../../comp/Search';
 import AddButton from '../../comp/AddButton';
@@ -7,14 +7,21 @@ import {Data} from '../../comp/Data/Data';
 
 function ProjectPage(){
     const ctx=useContext(Contxt);
+    const [floors, setFloors] = useState([]);
+    useEffect(()=>{
+        // find the right project   
+        for(var i=0;i<Data[0].projects.length;i++){
+            if(Data[0].projects[i].name==ctx.appctx.curProject){
+                // set/display floors
+                 setFloors(Data[0].projects[i].floors);
+                // set progress
+                ctx.dispatch({type:'Progress', progress: Data[0].projects[i].progress});
+            }
+         }
+        
+    },[])
 
-    var floors = [];
-    // find the right project and display floors
-    for(var i=0;i<Data[0].projects.length;i++){
-        if(Data[0].projects[i].name==ctx.appctx.curProject){
-            floors = Data[0].projects[i].floors;
-        }
-    }
+   
 
     return(
         <div className="projectpage-cont">
