@@ -2,8 +2,8 @@ import React,{useState} from 'react';
 //import SearchBar from '@opuscapita/react-searchbar';
 import {IoMdSearch} from 'react-icons/io'
 
-function Search({searchItem}){
-const [txt, setTxt] = useState("");
+function Search({searchItem,onChange,val}){
+// const [txt, setTxt] = useState("");
     return(
         <div className="search">
         <IoMdSearch className="search-icon"/> 
@@ -11,8 +11,11 @@ const [txt, setTxt] = useState("");
                     type='text'
                     size='45'
                     placeholder={"Search "+searchItem}
-                    onChange={(text)=>setTxt(text.target.value)}
-                    value={txt} />
+                    // onChange={(text)=>setTxt(text.target.value)}
+                    // value={txt} 
+                    onChange={onChange}
+                    value={val}
+                    />
         </div>
     )
 }
@@ -20,6 +23,8 @@ const [txt, setTxt] = useState("");
 //not sure how to change the text on input 
 Search.defaultProps = {
     searchItem: 'item',
+    onChange:()=>{},
+    val: ''
 }
 
 export default Search;

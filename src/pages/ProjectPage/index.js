@@ -8,6 +8,12 @@ import {Data} from '../../comp/Data/Data';
 function ProjectPage(){
     const ctx=useContext(Contxt);
     const [floors, setFloors] = useState([]);
+    const [skey,setSkey] = useState('');
+
+    const filtered = floors.filter((obj)=>{
+        return JSON.stringify(obj.num).indexOf(skey) >= 0 
+    });
+
     useEffect(()=>{
         // find the right project   
         for(var i=0;i<Data[0].projects.length;i++){
@@ -27,11 +33,15 @@ function ProjectPage(){
         <div className="projectpage-cont">
             <div className="search-area">
                 <p>Total floors: 3</p>
-                <Search searchItem="floor" />
+                <Search 
+                searchItem="floor number" 
+                onChange={(skey)=>{setSkey(skey.target.value)}}
+                val={skey}
+                />
             </div>
             <div>
             {
-                floors.map((obj,ind)=>{
+                filtered.map((obj,ind)=>{
                     return <Item 
                         itemName={obj.num}
                         progress={obj.progress}

@@ -1,8 +1,9 @@
-import React, { useReducer,useEffect } from 'react';
+import React, { useReducer } from 'react';
 import './App.scss';
 import Main from './pages/Main';
 import {Data} from './comp/Data/Data';
 
+// initial context
 const ctx = {
   curPage: localStorage.getItem('ctx')?JSON.parse(localStorage.getItem('ctx')).curPage:"Projects", // Projects, Project, Floor, Window
   curProject: localStorage.getItem('ctx')?JSON.parse(localStorage.getItem('ctx')).curProject:"", // Project name
@@ -71,25 +72,6 @@ function reducer(appctx,action){
 
 function App() {
   const [appctx,dispatch] = useReducer(reducer, ctx);
-  
-  useEffect(()=>{
-    // Grab context from local storage
-    // if(localStorage.getItem('ctx')){
-    //   var localctx = JSON.parse(localStorage.getItem('ctx'));
-    //   dispatch({
-    //     type:'Reload', 
-    //     curPage: localctx.curPage,
-    //     curProject: localctx.curProject,
-    //     curFloor: localctx.curFloor,
-    //     curWindow: localctx.curWindow,
-    //     curUser: localctx.curUser,
-    //     curCompany: localctx.curCompany,
-    //     curProgress: localctx.curProgress
-    //   });
-    //   console.log('context from local storage',localctx);
-    // }
-  },[]);
-  
   
   return (
     <div className="App">

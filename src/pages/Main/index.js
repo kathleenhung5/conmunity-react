@@ -16,6 +16,7 @@ import BreadCrumbs from '../../comp/BreadCrumbs';
 import PageTitle from '../../comp/PageTitle';
 // context
 import {Contxt} from '../../App';
+import {Data} from '../../comp/Data/Data';
 
 function Main(){
     const ctx = useContext(Contxt);

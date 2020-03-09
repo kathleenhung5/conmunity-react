@@ -9,6 +9,12 @@ import {Data} from '../../comp/Data/Data';
 function Floor(){
     const ctx=useContext(Contxt);
     const [windows, setWindows] = useState([]);
+    const [skey,setSkey] = useState('');
+
+    const filtered = windows.filter((obj)=>{
+        return JSON.stringify(obj.num).indexOf(skey) >= 0 
+    });
+
     useEffect(()=>{
        // find the current floor in Data to display windows
         for(var i=0;i<Data[0].projects.length;i++){
@@ -29,7 +35,10 @@ function Floor(){
     return(
         <div className='floor-cont'>
             <div className="search-area">
-                <Search searchItem="a window" />
+                <Search searchItem="window number" 
+                onChange={(skey)=>{setSkey(skey.target.value)}}
+                val={skey}
+                />
             </div>
 
             <div className="floor-lower">
@@ -44,7 +53,7 @@ function Floor(){
                 </div>
                 <div className="floor-list">
                 {
-                    windows.map((obj,ind)=>{
+                    filtered.map((obj,ind)=>{
                         return <Item 
                             itemName={obj.num}
                             progress={obj.progress}
