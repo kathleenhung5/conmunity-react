@@ -1,0 +1,50 @@
+@import '../../style/font';
+@import '../../style/colours';
+@import '../../style/func';
+
+.plan-cont {
+    background: white;
+    width: 250px;
+    height:330px;
+    margin: 20px;
+    @include flex(column,flex-start,center);
+    @extend %drop-shadow;
+    padding: 20px 20px 40px 20px;
+    border-radius: 10px;
+    .plan-current {
+        @extend %font-detail-text;
+        margin-bottom: 15px;
+    }
+    .hidden {
+        visibility: hidden;
+    }
+    h2 {
+        @extend %font-h2;
+        color: $blue;
+        border: solid 2px $blue;
+        width: 130px;
+        padding: 20px 10px;
+        text-align: center;
+        border-radius: 10px;
+    }
+    h3 {
+        @extend %font-h2;
+        color: $black;
+        font-size: 28px;
+        margin: 15px 0px;
+    }
+    .feature-list {
+        flex:1;
+    }
+}
+
+.plan-feature {
+    @include flex(row,flex-start, center);
+    color: $blue;
+    h5 {
+        margin: 3px 10px;
+        @extend %font-body;
+        font-size: 16px;
+    }
+
+}

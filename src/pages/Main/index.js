@@ -10,6 +10,8 @@ import Projects from '../Projects';
 import ProjectPage from '../ProjectPage';
 import Floor from '../Floor';
 import Window from '../Window';
+import Pay from '../Pay';
+import Upgrade from '../Upgrade';
 //   comps
 import Profile from '../../comp/Profile';
 import BreadCrumbs from '../../comp/BreadCrumbs';
@@ -51,6 +53,12 @@ function Main(){
                 </Route>
                 <Route path="/window">
                     <Window />
+                </Route>
+                <Route path="/pay">
+                    <Pay />
+                </Route>
+                <Route path="/upgrade">
+                    <Upgrade />
                 </Route>
             </Switch>
         </Router>

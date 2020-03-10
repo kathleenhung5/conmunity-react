@@ -1,0 +1,7 @@
+@import '../../style/font';
+@import '../../style/colours';
+@import '../../style/func';
+
+.upgrade-cont {
+    @include flex(row,center,center);
+}

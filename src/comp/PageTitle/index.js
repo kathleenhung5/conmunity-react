@@ -34,6 +34,18 @@ function PageTitle({title,code}){
             arrowclass = 'arrow';
             codeclass="hidden";
             progressclass = "pageTitle-progress";
+            break
+        case 'Upgrade':
+            title = "Upgrade to Premium";
+            arrowclass = 'none';
+            codeclass = 'hidden';
+            progressclass = 'hidden';
+            break
+        case 'Pay':
+            title = "Upgrade to Premium";
+            arrowclass = 'none';
+            codeclass = 'hidden';
+            progressclass = 'hidden';
     }
 
 
