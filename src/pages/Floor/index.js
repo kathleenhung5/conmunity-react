@@ -1,15 +1,18 @@
 import React,{useContext,useEffect,useState} from 'react';
 import Item from '../../comp/Item';
 import {Contxt} from '../../App';
-import AddButton from '../../comp/AddButton';
+import {MdFileUpload} from 'react-icons/md';
 import Search from '../../comp/Search';
 import floorimg from '../../img/floorplan.png';
 import {Data} from '../../comp/Data/Data';
+import {FaEdit} from 'react-icons/fa';
+import {MdDelete} from 'react-icons/md';
 
 function Floor(){
     const ctx=useContext(Contxt);
     const [windows, setWindows] = useState([]);
     const [skey,setSkey] = useState('');
+    const [editMode,setEditMode] = useState(false);
 
     const filtered = windows.filter((obj)=>{
         return JSON.stringify(obj.num).indexOf(skey) >= 0 
@@ -30,7 +33,7 @@ function Floor(){
                 }
             }
         }
-    },[])
+    },[ctx.appctx.curFloor]);
     
     return(
         <div className='floor-cont'>
@@ -45,18 +48,40 @@ function Floor(){
                 <div className="floorplan-cont">
                     <div>
                         <p>Floor plan</p> 
-                        <AddButton text="upload floorplan"/>
+                        {/* <AddButton text="upload floorplan"/> */}
+                        <label>
+                            <MdFileUpload />
+                            <input type="file" accept="image/*,.pdf"/>
+                            Upload
+                        </label>
+                        
                     </div>
                     <div className="floorplan">
                         <img src={floorimg} />
                     </div>
                 </div>
                 <div className="floor-list">
+                    <div 
+                    className={editMode?"dis-none":'edit-button'}
+                    onClick={()=>{setEditMode(true)}}
+                    >
+                        <FaEdit />
+                        <p>Edit</p>
+                    </div>
+                    <div 
+                    className={editMode?'edit-button':'dis-none'}
+                    onClick={()=>{setEditMode(false)}}
+                    >
+                        <MdDelete />
+                        <p>Delete</p>
+                    </div>
+
                 {
                     filtered.map((obj,ind)=>{
                         return <Item 
                             itemName={obj.num}
                             progress={obj.progress}
+                            editMode={editMode}
                         />
                     })
                 }

@@ -4,6 +4,7 @@
 
 
 .item-cont {
+    flex:1;
     @include flex(row, center, center);
     margin-bottom: 10px;
     .item {

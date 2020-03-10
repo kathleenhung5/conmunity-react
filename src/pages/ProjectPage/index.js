@@ -1,14 +1,16 @@
 import React,{useContext,useEffect,useState} from 'react';
 import Item from '../../comp/Item';
 import Search from '../../comp/Search';
-import AddButton from '../../comp/AddButton';
 import {Contxt} from '../../App';
 import {Data} from '../../comp/Data/Data';
+import {FaEdit} from 'react-icons/fa';
+import {MdDelete} from 'react-icons/md';
 
 function ProjectPage(){
     const ctx=useContext(Contxt);
     const [floors, setFloors] = useState([]);
     const [skey,setSkey] = useState('');
+    const [editMode, setEditMode] =useState(false);
 
     const filtered = floors.filter((obj)=>{
         return JSON.stringify(obj.num).indexOf(skey) >= 0 
@@ -39,12 +41,27 @@ function ProjectPage(){
                 val={skey}
                 />
             </div>
-            <div>
+            <div className="projectpage-list">
+                <div 
+                    className={editMode?"dis-none":'edit-button'}
+                    onClick={()=>{setEditMode(true)}}
+                    >
+                        <FaEdit />
+                        <p>Edit</p>
+                    </div>
+                    <div 
+                    className={editMode?'edit-button':'dis-none'}
+                    onClick={()=>{setEditMode(false)}}
+                    >
+                        <MdDelete />
+                        <p>Delete</p>
+                </div>    
             {
                 filtered.map((obj,ind)=>{
                     return <Item 
                         itemName={obj.num}
                         progress={obj.progress}
+                        editMode={editMode}
                     />
                 })
             }

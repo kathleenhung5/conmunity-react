@@ -16,9 +16,9 @@ function TaskListItem({name, tag, alert, onClick, editMode, open}){
     // arrow
     var arrow = null;
     if(open){
-        arrow = <IoIosArrowBack />
-    }else {
         arrow = <IoIosArrowForward />
+    }else {
+        arrow = null;
     }
 
     // Show and hide Tag

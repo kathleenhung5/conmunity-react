@@ -60,15 +60,30 @@ function PageTitle({title,code}){
                 }
             }
         }
-    },[ctx.appctx.curPage]);
+    },[ctx.appctx.curPage,ctx.appctx.curFloor,ctx.appctx.curWindow]);
     
 
     return(
         <div className="pageTitle-cont">
             <div className="pageTitle">
-                <IoIosArrowBack className={arrowclass} />
+                <div 
+                className={arrowclass} 
+                onClick={()=>{
+                        ctx.appctx.curPage=='Floor'?
+                        ctx.dispatch({type:'Floor',text:Number(ctx.appctx.curFloor)-1}):ctx.dispatch({type:'Window',text:Number(ctx.appctx.curWindow)-1});
+                        
+                }}>
+                    <IoIosArrowBack />
+                </div>
                 <h3>{title}</h3>
-                <IoIosArrowForward className={arrowclass}/>
+                <div
+                className={arrowclass}
+                onClick={()=>{
+                    ctx.appctx.curPage=='Floor'?
+                    ctx.dispatch({type:'Floor',text:Number(ctx.appctx.curFloor)+1}):ctx.dispatch({type:'Window',text:Number(ctx.appctx.curWindow)+1})
+                }}>   
+                    <IoIosArrowForward />
+                </div>
                 <p className={codeclass}>{code}</p>
             </div>
             <div className={progressclass}>

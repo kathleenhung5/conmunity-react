@@ -8,6 +8,7 @@ import {Data} from '../../comp/Data/Data';
 function Window(){
     const ctx=useContext(Contxt);
     const [tasks,setTasks] = useState([]);
+
     useEffect(()=>{
         // find the current Window in Data to display tasks
         for(var i=0;i<Data[0].projects.length;i++){
@@ -27,22 +28,24 @@ function Window(){
                     }
                 }
             }
-        }
-       
-    },[]);
+        } 
+    },[ctx.appctx.curWindow,ctx.appctx.curPage]);
     
     
-    var task = {};
     const [curTask, setCurTask] = useState({});
     const [curInd, setI] = useState(-1);
     const [comments, setComments] = useState([]);
-    console.log('curTask comment',curTask.comments);
+    const [editMode, setEditMode] = useState(false);
+    const [commentMode, setCommentMode] = useState(false);
+    const [tTitle, setTtitle] = useState('');
+    const [tDes,setTdes] = useState('');
 
     const handleClick = (ind) =>{
         setI(ind);
         setCurTask(tasks[ind]);
         setComments(tasks[ind].comments);
     }
+
     return(
         <div className="window-cont">
             <div className="add-task-cont">
@@ -56,20 +59,45 @@ function Window(){
                     tasks.map((obj,ind)=>{
                         return <TaskListItem 
                         onClick={handleClick.bind(this, ind)} 
-                        username={obj.username}
-                        comment={obj.comment}
-                        stamp={obj.stamp}
+                        name={obj.name}
+                        tag={obj.tag}
+                        alert={obj.alert}
                         open={curInd === ind}
                         />
                     })
                     }
                 </div>
-                <div className="task-card-cont">
-                    <div className="task-des">
+                {/* Card */}
+                <div className={curInd<0?'task-card-cont hidden':'task-card-cont'}>
+                    {/* Task Name and Description */}
+                    <div className={editMode?"task-edit":"dis-none"}>
+                        <input 
+                        type="text" 
+                        value={tTitle} 
+                        onChange={(tTitle)=>{setTtitle(tTitle.target.value)
+                        }}/>
+                        <textarea 
+                        type="text" 
+                        value={tDes} 
+                        onChange={(tDes)=>{setTdes(tDes.target.value)}}/>
+                        <Button 
+                        text="Save"
+                        onClick={()=>{setEditMode(false)}} 
+                        />
+                    </div>
+                    <div className={editMode?"dis-none":"task-des"}>
                         <h3>{curTask.name}</h3>
                         <p>{curTask.des}</p>
-                        <Button type="blue-outline" text="Edit task"/>
+                        <Button 
+                        type="blue-outline" 
+                        text="Edit task"
+                        onClick={()=>{
+                            setTtitle(curTask.name);
+                            setTdes(curTask.des);
+                            setEditMode(true);
+                        }}/>
                     </div>
+                    {/* Comments */}
                     <div className="task-comments">
                         <h2>Comments</h2>
                         {
@@ -77,16 +105,27 @@ function Window(){
                                 return <SingleComment {...obj}/>
                             })
                         }
-                        <div className="task-comments-button">  
-                            <Button text="Comment" type="blue-outline" />
-                            <Button text="Approve" />
+                        <div className={commentMode?"hidden":"task-comments-button"}>  
+                            <Button
+                            text="Comment" 
+                            type="blue-outline"
+                            onClick={()=>setCommentMode(true)}
+                            />
+                            <Button 
+                            text="Approve" 
+                            />
                         </div>
                        
                     </div>
-                    <div className="comment-cont">
+                    {/* Comment boxes */}
+                    <div className={commentMode?"comment-cont":"dis-none"}>
                         <p>{ctx.appctx.curUser}</p>
                         <textarea />
-                        <Button type="blue-fill" text="Post comment"/>
+                        <Button 
+                        type="blue-fill" 
+                        text="Post comment"
+                        onClick={()=>setCommentMode(false)}
+                        />
                     </div>
                 </div>
             </div>

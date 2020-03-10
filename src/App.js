@@ -3,7 +3,7 @@ import './App.scss';
 import Main from './pages/Main';
 import {Data} from './comp/Data/Data';
 
-// initial context
+// initial
 const ctx = {
   curPage: localStorage.getItem('ctx')?JSON.parse(localStorage.getItem('ctx')).curPage:"Projects", // Projects, Project, Floor, Window
   curProject: localStorage.getItem('ctx')?JSON.parse(localStorage.getItem('ctx')).curProject:"", // Project name

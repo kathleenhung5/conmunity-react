@@ -23,7 +23,7 @@ function Main(){
     useEffect(()=>{
         // store the context in local storage
         localStorage.setItem('ctx', JSON.stringify(ctx.appctx));
-    },[ctx.appctx.curPage]);
+    },[ctx.appctx.curPage,ctx.appctx.curFloor,ctx.appctx.curWindow]);
 
 
     return(

@@ -9,4 +9,17 @@
             margin-right: 20px;
         }
     }
+    .projectpage-list {
+        p{
+            @extend %font-detail-text;
+        } 
+        .edit-button {
+            @include flex(column,center,flex-end);
+            margin:10px;
+            color: $blue;
+        } 
+        .dis-none {
+            display:none;
+        }
+    }
 }
