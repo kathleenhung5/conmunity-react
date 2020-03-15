@@ -44,7 +44,7 @@ function BreadCrumbs({page}){
             break
         case "Floor":
             bc3="hidden";
-            break
+            break;
     }
 
     return(

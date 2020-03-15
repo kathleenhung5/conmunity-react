@@ -39,11 +39,17 @@
                 @include flex(column,stretch,flex-start);
                 input {
                     @extend %font-h2;
+                    border:none;
+                    background-color: rgb(245,245,245);
+                    margin-bottom: 10px !important;
                 }
                 textarea {
                     @extend %font-body;
                     align-self: stretch;
-                    height: 30px
+                    height: 40px;
+                    border:none;
+                    background-color: rgb(245,245,245);
+                   
                 }
                 div {
                     align-self: flex-end;

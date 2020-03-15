@@ -11,7 +11,8 @@ const ctx = {
   curWindow: localStorage.getItem('ctx')?JSON.parse(localStorage.getItem('ctx')).curWindow:0, // int
   curUser: Data[0].username,
   curCompany: Data[0].company,
-  curProgress: localStorage.getItem('ctx')?JSON.parse(localStorage.getItem('ctx')).curProgress:0  // int
+  curProgress: localStorage.getItem('ctx')?JSON.parse(localStorage.getItem('ctx')).curProgress:0,  // int
+  upgrade: 0 //default 0, on upgrade page is 1, on payment page is 2
 };
 export const Contxt = React.createContext(ctx);
 
@@ -26,6 +27,7 @@ function reducer(appctx,action){
           curFloor: 0,
           curWindow: 0,
           curProgress:0,
+          upgrade:0
         };
         break
     case 'Project':
@@ -34,6 +36,7 @@ function reducer(appctx,action){
           curProject: action.text, 
           curFloor: 0,
           curWindow: 0,
+          upgrade:0
         };
         break
     case 'Floor':
@@ -41,14 +44,21 @@ function reducer(appctx,action){
           curPage: 'Floor', 
           curFloor: action.text,
           curWindow: 0,
+          upgrade:0
         };
         break
     case 'Window':
         return {...appctx,
           curPage: 'Window', 
           curWindow: action.text,
-        };
+          upgrade:0
+        }
         break
+    case 'Progress':
+      return {
+        ...appctx,
+        curProgress: action.progress
+      }
     // When the page reloads, set the context from local storage
     case 'Reload':  
         return {
@@ -58,13 +68,31 @@ function reducer(appctx,action){
           curWindow: action.curWindow,
           curUser: action.curUser,
           curCompany: action.curCompany,
-          curProgress: action.curProgress
+          curProgress: action.curProgress,
+          upgrade:0
         }
-        break
-    case 'Progress':
+        break  
+    // When the user goes to upgrade/pay page. This way when the page refreshes, it shows where the user was before entering these two pages. 
+    case 'Upgrade':
       return {
         ...appctx,
-        curProgress: action.progress
+        upgrade: 1
+      }  
+      break
+    case 'Pay':
+      return {
+        ...appctx,
+        upgrade: 2
+      }
+      break
+      // go to template page
+    case 'Template':
+      return {
+        ...appctx,
+        curPage: 'Project', 
+        curFloor: 0,
+        curWindow: 0,
+        upgrade:0
       }
   }
   

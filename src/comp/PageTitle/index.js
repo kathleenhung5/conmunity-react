@@ -35,19 +35,33 @@ function PageTitle({title,code}){
             codeclass="hidden";
             progressclass = "pageTitle-progress";
             break
-        case 'Upgrade':
-            title = "Upgrade to Premium";
-            arrowclass = 'none';
-            codeclass = 'hidden';
-            progressclass = 'hidden';
-            break
-        case 'Pay':
-            title = "Upgrade to Premium";
-            arrowclass = 'none';
-            codeclass = 'hidden';
-            progressclass = 'hidden';
+        // case 'Upgrade':
+        //     title = "Upgrade to Premium";
+        //     arrowclass = 'none';
+        //     codeclass = 'hidden';
+        //     progressclass = 'hidden';
+        //     break
+        // case 'Pay':
+        //     title = "Payment";
+        //     arrowclass = 'none';
+        //     codeclass = 'hidden';
+        //     progressclass = 'hidden';
     }
 
+    // if the user is on upgrade or pay page
+   if (ctx.appctx.upgrade==1){
+        title = "Upgrade to Premium";
+        arrowclass = 'hidden';
+        codeclass = 'hidden';
+        progressclass = 'hidden';
+   } else if (ctx.appctx.upgrade==2){
+        title = "Payment";
+        arrowclass = 'hidden';
+        codeclass = 'hidden';
+        progressclass = 'hidden'; 
+   }
+            
+   
 
     const [prog,setProg] = useState(0);
     // find the right progress to show on current page

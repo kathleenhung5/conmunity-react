@@ -12,6 +12,11 @@
         .profile {
             margin-right: 20px;
         }
+        .create-template {
+            margin-left:auto !important;
+            @extend %font-body;
+            color: $blue;
+        }
     }
     
 

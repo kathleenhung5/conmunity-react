@@ -24,3 +24,40 @@
 
     }
 }
+
+.confirm-cont {
+    width: 100%;
+   position: absolute;
+   z-index: 2;
+   .confirm-box {
+        width: 200px;
+        margin: 0 auto;
+        background-color:white;
+        @extend %drop-shadow;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        h2 {
+            @extend %font-h2;
+            font-size: 25px !important;
+            color: $blue;
+        }
+        p {
+            @extend %font-body;
+            margin-bottom: 20px !important;
+        }
+        a {
+            @extend %font-body;
+            color: $blue;
+        }
+        svg {
+            margin: 20px;
+            font-size: 40px;
+            color: $blue;
+        }
+   }
+}
+
+.dis-none {
+    display:none;
+}

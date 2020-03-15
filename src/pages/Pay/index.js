@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useContext,useEffect,useState} from 'react';
 import {loadStripe} from '@stripe/stripe-js';
 import {
   CardElement,
@@ -6,11 +6,18 @@ import {
   useStripe,
   useElements,
 } from '@stripe/react-stripe-js';
+import {Link} from "react-router-dom";
+import {FiCheckCircle} from 'react-icons/fi';
+import { Contxt } from '../../App';
 
 const stripePromise = loadStripe('pk_test_33cyFX5JhyAdytACyYPI6cx00020aRNCHz');
 
 function Pay(){
-
+  const ctx = useContext(Contxt);
+  const [paid,setPaid] = useState(false);
+    useEffect(()=>{
+        setPaid(localStorage.getItem('paid'));
+    },[]);
     // Form 
     const CardForm = () => {
         const stripe = useStripe();
@@ -26,6 +33,7 @@ function Pay(){
               } else {
                 console.log('[PaymentMethod]', paymentMethod);
                 localStorage.setItem('paid',true);
+                setPaid(true);
               }       
         };
 
@@ -39,9 +47,22 @@ function Pay(){
     }
 
     return(
+      <div>
+        <div className={paid?"confirm-cont":"dis-none"}>
+          <div className="confirm-box">
+            <h2>Success!</h2>
+              <FiCheckCircle />
+              <p>You have upgraded to the Premium version</p>
+              <Link 
+              to="/template" 
+              onClick={()=>{ctx.dispatch({type:'Template'})}}>
+              Go back to project</Link>
+          </div>
+        </div>
         <Elements stripe={stripePromise}>
             <CardForm />
         </Elements>
+      </div>
     )
 }
 

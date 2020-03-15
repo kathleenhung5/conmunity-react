@@ -1,8 +1,12 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import {MdCheck} from 'react-icons/md';
 import Button from '../Button';
+import {Link} from "react-router-dom";
+import {Contxt} from '../../App';
+
 
 function Plan({current, name, price, feature}){
+    const ctx = useContext(Contxt);
     return(
         <div className="plan-cont">
             <p className={current?'plan-current':'plan-current hidden'}>Your current plan</p>
@@ -16,8 +20,8 @@ function Plan({current, name, price, feature}){
                 })
             }
             </div>
-            {current?null:<Button 
-            text='UPGRADE'/>}
+            {current?null:<Link to="/pay" onClick={()=>{ctx.dispatch({type:'Pay'})}}><Button 
+            text='UPGRADE'/></Link>}
         </div>
     )
 }
