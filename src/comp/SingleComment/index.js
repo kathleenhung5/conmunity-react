@@ -1,20 +1,20 @@
 import React from 'react';
 
 
-function SingleComment({userName, comment, timestamp}){
+function SingleComment({username, comment, stamp}){
     return(
         <div className="singleComment">
-           <h4>{userName}</h4> 
+           <h4>{username} / {stamp}</h4> 
            <p>{comment}</p>
-           <h5>{timestamp}</h5>
+           
         </div>
     )
 }
 
 SingleComment.defaultProps = {
-    userName:'Username',
+    username:'Username',
     comment: 'Some comment',
-    timestamp: 'Date/time'
+    stamp: 'Date/time'
 }
 
 export default SingleComment;

@@ -4,23 +4,21 @@ import {IoIosArrowForward, IoIosArrowBack} from 'react-icons/io';
 import CheckBox from '@material-ui/core/Checkbox';
 import Tag from '../Tag';
 
-function TaskListItem({name, tag, alert, onClick, editMode}){
-    const [view, setView] = useState(false);
-    
-    // Which Arrow to show 
-    var arrow = null;
-    if(view){
-        arrow = <IoIosArrowBack />
-    } else {
-        arrow = <IoIosArrowForward />
-    }
-    
+function TaskListItem({name, tag, alert, onClick, editMode, open}){
+    const [view,setView] = useState(false);
     // Show and hide Alert
     var taskAlertClass = "";
     if(alert){
         taskAlertClass = "taskAlert";
     } else {
         taskAlertClass = "taskAlert invisible";
+    }
+    // arrow
+    var arrow = null;
+    if(open){
+        arrow = <IoIosArrowForward />
+    }else {
+        arrow = null;
     }
 
     // Show and hide Tag
@@ -32,8 +30,8 @@ function TaskListItem({name, tag, alert, onClick, editMode}){
     }
 
     return (
-    <div className="taskListItem-cont">
-        <div className="taskListItem" onClick={()=>setView(!view)}>
+    <div className="taskListItem-cont" onClick={onClick}>
+        <div className="taskListItem" onClick={()=>{setView(!view)}} >
             <h3>{name}</h3>
             {/* <Tag tag={tag} /> */}
             <div className={taskTagClass}><Tag text={tag}/></div>
@@ -51,7 +49,8 @@ TaskListItem.defaultProps = {
     name: 'Task Name',
     tag: 'Tag Name',
     alert: false,
-    // onClick:()=>{}
+    open:false,
+    onClick:()=>{}
 }
 
 export default TaskListItem;

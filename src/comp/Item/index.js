@@ -18,24 +18,29 @@ function Item({itemName, alert, editMode, progress}){
         }
 
     return (
-        <Link 
-        to={ctx.appctx.curPage=='Project'?"/floor":"/window"} 
-        className="item-cont"
-        onClick={()=>ctx.dispatch({type: ctx.appctx.curPage=='Project'?'Floor':'Window',text:`${itemName}`})}
-        >
-            <div className="item" >
-            <h3>{ctx.appctx.curPage=='Project'?"Floor ":"Window "}{itemName}</h3>
-                <ProgressBar progress={progress} />
-                <div className={itemAlertClass}><FiAlertCircle /></div>
-            </div>
+        <div className="item-cont">
+            <Link 
+            to={ctx.appctx.curPage=='Project'?"/floor":"/window"} 
+            className="item"
+            onClick={()=>{
+                ctx.dispatch({type: ctx.appctx.curPage=='Project'?'Floor':'Window',text:`${itemName}`});
+            }}
+            >
+              
+                <h3>{ctx.appctx.curPage=='Project'?"Floor ":"Window "}{itemName}</h3>
+                    <ProgressBar progress={progress} />
+                    <div className={itemAlertClass}><FiAlertCircle /></div>
+            
+            
+            </Link>
             <CheckBox style={{visibility: editMode? "visible":"hidden"}} />
-        </Link>
+         </div>
     )
 
 }
 
 Item.defaultProps = {
-    itemName: 'Floor 1',
+    itemName: '',
     progress: 0,
     alert: false,
     editMode:false, 

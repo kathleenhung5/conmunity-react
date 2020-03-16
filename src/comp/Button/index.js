@@ -12,11 +12,11 @@ switch(type){
         break;
     case 'blue-outline':
         cn = 'button-cont blue-outline';
-        txt = 'black';
+        txt = 'blue';
         break;
     case 'grey-outline':
         cn = 'button-cont grey-outline';
-        txt = 'black';
+        txt = 'grey';
         break;
 }
 

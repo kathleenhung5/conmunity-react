@@ -15,4 +15,8 @@
     margin: 40px auto;
     // overflow-y: scroll;
     height: 50vh;
+    .search-area {
+        margin-bottom: 30px;
+        @include flex(row, center, center);
+    }
 }

@@ -2,13 +2,17 @@
 @import '../../style/colours';
 @import '../../style/func';
 
-.addButton {
-    @include flex(row, center, center);
-    .addButtonIcon {
-        color: $blue;
+.addbutton-cont {
+    display: inline-block;
+    margin-right: 30px;
+    .addButton {
+        @include flex(row, center, center);
+        .addButtonIcon {
+            color: $blue;
+        }
+        .addButtonText {
+            @extend %font-body;
+        }
+    
     }
-    .addButtonText {
-        @extend %font-body;
-    }
-
 }

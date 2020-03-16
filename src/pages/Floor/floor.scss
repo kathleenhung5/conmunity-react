@@ -4,4 +4,48 @@
 
 .floor-cont {
     @extend %routes;
+    .floor-lower {
+        @include flex(row, center, flex-start);
+        .floorplan-cont {
+            flex:1;
+            div:first-child {
+                @include flex(row,space-between, center);
+            }
+            label {
+                @include flex(row, center, flex-end);
+                margin-right: 30px;
+                svg {
+                    color: $blue;
+                }
+                input {
+                    display: none;
+                }
+            }
+            .floorplan {
+                flex:1;
+                @include flex(row, center, center);
+                margin-right: 30px;
+                background: white;
+                @extend %drop-shadow;
+                border-radius: 20px;
+                overflow: hidden;
+                
+            }
+            
+        }
+        .floor-list {
+            flex:1; 
+            p{
+                @extend %font-detail-text;
+            } 
+            .edit-button {
+                @include flex(column,center,flex-end);
+                margin:10px;
+                color: $blue;
+            } 
+            .dis-none {
+                display:none;
+            }
+        }
+    }
 }

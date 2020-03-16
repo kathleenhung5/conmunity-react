@@ -3,6 +3,9 @@
 @import '../../style/func';
 
 .projects-cont {
-    @include grid(4);
     @extend %routes;
+    
+    .projects-projects {
+        @include grid(4);
+    }
 }

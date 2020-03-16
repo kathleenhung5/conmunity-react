@@ -1,37 +1,40 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import {Contxt} from '../../../App';
+import {Link} from 'react-router-dom';
 
 
-function BreadCrumbItem({page,index,active}){
+function BreadCrumbItem({page,active,topage,onClick}){
+    const ctx=useContext(Contxt);
     var pageName = "";
     switch(page){
         case "Projects":
             pageName = "Projects";
             break
         case "Project":
-            pageName = "The Project Name";
+            pageName = ctx.appctx.curProject;
             break
         case "Floor":
-            pageName = "Floor " + index;
+            pageName = "Floor " + ctx.appctx.curFloor;
             break
         case "Window":
-            pageName = "Window " + index;
+            pageName = "Window " + ctx.appctx.curWindow;
             break
     }
 
 
     return(
-        <div className="BCItem-cont" >
+        <Link className="BCItem-cont" to={topage} onClick={onClick}>
             <div className={active?"BCItem active":"BCItem inactive"}>{pageName}</div>
-        </div>
+        </Link>
     )
 }
 
 BreadCrumbItem.defaultProps = {
     page:"Projects", // Project(Floors), Floor, Window
-    index:1,
+    // index:1,
     active: false,
+    topage: '',
     onClick:()=>{}
-
 }
 
 export default BreadCrumbItem;

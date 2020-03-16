@@ -1,40 +1,71 @@
-import React,{useContext} from 'react';
+import React,{useContext,useEffect,useState} from 'react';
 import Item from '../../comp/Item';
+import Search from '../../comp/Search';
 import {Contxt} from '../../App';
+import {Data} from '../../comp/Data/Data';
+import {FaEdit} from 'react-icons/fa';
+import {MdDelete} from 'react-icons/md';
 
 function ProjectPage(){
     const ctx=useContext(Contxt);
-    // console.log('project page, curpage',ctx.appctx.curPage);
-    // console.log('project page curproject', ctx.appctx.curProject);
-    
-    const floors = [
-        {
-            floor: 1,
-            progress: 23,
-            deleted: 0
-        },
-        {
-            floor: 2,
-            progress: 35,
-            deleted: 0
-        },
-        {
-            floor: 3,
-            progress: 49, 
-            deleted: 0
-        }
-    ];
+    const [floors, setFloors] = useState([]);
+    const [skey,setSkey] = useState('');
+    const [editMode, setEditMode] =useState(false);
+
+    const filtered = floors.filter((obj)=>{
+        return JSON.stringify(obj.num).indexOf(skey) >= 0 
+    });
+
+    useEffect(()=>{
+        // find the right project   
+        for(var i=0;i<Data[0].projects.length;i++){
+            if(Data[0].projects[i].name==ctx.appctx.curProject){
+                // set/display floors
+                 setFloors(Data[0].projects[i].floors);
+                // set progress
+                ctx.dispatch({type:'Progress', progress: Data[0].projects[i].progress});
+            }
+         }
+        
+    },[])
+
+   
 
     return(
         <div className="projectpage-cont">
+            <div className="search-area">
+                <p>Total floors: 3</p>
+                <Search 
+                searchItem="floor number" 
+                onChange={(skey)=>{setSkey(skey.target.value)}}
+                val={skey}
+                />
+            </div>
+            <div className="projectpage-list">
+                <div 
+                    className={editMode?"dis-none":'edit-button'}
+                    onClick={()=>{setEditMode(true)}}
+                    >
+                        <FaEdit />
+                        <p>Edit</p>
+                    </div>
+                    <div 
+                    className={editMode?'edit-button':'dis-none'}
+                    onClick={()=>{setEditMode(false)}}
+                    >
+                        <MdDelete />
+                        <p>Delete</p>
+                </div>    
             {
-                floors.map((obj,ind)=>{
+                filtered.map((obj,ind)=>{
                     return <Item 
-                        itemName={obj.floor}
+                        itemName={obj.num}
                         progress={obj.progress}
+                        editMode={editMode}
                     />
                 })
             }
+            </div>
         </div>
     )
 }

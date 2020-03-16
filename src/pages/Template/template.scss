@@ -1,0 +1,40 @@
+@import '../../style/font';
+@import '../../style/colours';
+@import '../../style/func';
+
+.template-cont {
+    margin-top: 30px !important;
+    width: 400px;
+    padding: 40px;
+    margin: 0 auto;
+    background-color: white;
+    @extend %drop-shadow;
+    border-radius: 15px;
+    text-align: center;
+    h2 {
+        @extend %font-h2;
+        color: $blue;
+        font-size: 30px !important;
+        margin-bottom: 30px !important;
+    }
+    .template-inputs  {
+        @include flex(row, space-between, center);
+        margin-bottom: 30px;
+        p {
+            @extend %font-body;
+            span {
+                color: $blue;
+            }
+        }
+        input  {
+            width: 50px;
+            @extend %font-body;
+            border-radius:5px;
+            padding: 5px;
+            border: solid 1px $grey;
+            text-align: center;
+        }
+       
+    }
+   
+}

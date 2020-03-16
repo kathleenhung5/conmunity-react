@@ -3,8 +3,19 @@
     background-color: $appBg;
     width: 100vw;
     height: 100vh;
+    overflow:scroll;
     a {
         text-decoration: none;
+        &:visited {
+            color: $black;
+        }
+        &:active {
+            text-decoration: none;
+            color: $black;
+        }
+    }
+    input:focus {
+        outline:none;
     }
 }
 
@@ -15,6 +26,9 @@
 @import './pages/ProjectPage/projectpage.scss';
 @import './pages/Floor/floor.scss';
 @import './pages/Window/window.scss';
+@import './pages/Upgrade/upgrade.scss';
+@import './pages/Pay/pay.scss';
+@import './pages/Template/template.scss';
 
 // Comps Styles
 @import './comp/AddButton/addbutton.scss';
@@ -31,3 +45,5 @@
 @import './comp/PageTitle/pagetitle.scss';
 @import './comp/ProgressBar/progressbar.scss';
 @import './comp/Item/item.scss';
+@import './comp/Search/search.scss';
+@import './comp/Plan/plan.scss';
